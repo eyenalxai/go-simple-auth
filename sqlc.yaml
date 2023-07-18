@@ -1,0 +1,13 @@
+version: "2"
+sql:
+  - schema: ".migrations"
+    queries: "sql/query.sql"
+    engine: "postgresql"
+    gen:
+      go:
+        package: "users"
+        out: "postgresql"
+    database:
+      uri: "postgresql://postgres:postgres@localhost:5432/postgres"
+    rules:
+      - sqlc/db-prepare
